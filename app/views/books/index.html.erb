@@ -1,13 +1,38 @@
+<p class="success" id="notice">
+ <%=  notice %>
 <h1>Books</h1>
+<div class="box">
+  <div class="title_area">
+    <h4>Title</h4>
+  </div>
+  <div class="body_area">
+    <h4>Body<h4>
+  </div>
+</div>
+
+
 <% @books.each do |book| %>
-  <p>Title</p>
+<main>
+<div class="title_text">
   <span><%= book.title %></span>
-  <p>Body</p>
+</div>
+<div class="body_text">
   <span><%= book.body %></span>
-  <span>
+</div>
+  <span class="link_area">
     <!--routesのas: 'book'の記載をしたやつ。リンクになっている。-->
     <%= link_to "Show", book_path(book.id) %>
     <%= link_to "Edit", edit_book_path(book.id) %>
-    <%= link_to "destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
+    <%= link_to "Destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
   </span>
+  </main>
+<% end %>
+
+<h2>New book</h2>
+<%= form_with model: @book, url:'/books/index', local:true do |f| %>
+  <p>Title</p>
+  <%= f.text_field :title %>
+  <p>Body</p>
+  <%= f.text_area :body %>
+  <%= f.submit 'Create Book' %>
 <% end %>

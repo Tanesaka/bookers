@@ -13,3 +13,59 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  box-sizing: border-box;
+}
+
+/*Index*/
+.box {
+  display: flex;
+}
+
+.title_area {
+  text-align: center;
+  width: 20%;
+}
+
+.body_area {
+  text-align: center;
+  width: 30%;
+}
+
+.title_text {
+  text-align: left;
+  width: 20%;
+}
+
+.body_text {
+  text-align: left;
+  width: 30%;
+}
+
+main {
+  display: flex;
+}
+
+/*Show*/
+.show_title {
+  margin-left: 60px;
+  display: flex;
+}
+.show_body {
+  margin-left: 60px;
+  display: flex;
+}
+.show_text {
+  line-height: 45px;
+}
+
+/*edit*/
+.edit_link {
+  display: flex;
+}
+
+/*共通*/
+.success {
+ color: green;
+}
