@@ -1,15 +1,5 @@
 class BooksController < ApplicationController
 
-  def index
-    @books = Book.all
-  end
-
-
-  def show
-    @book = Book.find(params[:id])
-  end
-
-
   def new
     @book = Book.new
   end
@@ -21,10 +11,30 @@ class BooksController < ApplicationController
     redirect_to book_path(book.id)
   end
 
-
-  def edit
+  def index
+    @books = Book.all
   end
 
+
+  def show
+    @book = Book.find(params[:id])
+  end
+
+  def edit
+    @book = Book.find(params[:id])
+  end
+
+  def update
+    book = Book.find(params[:id])
+    book.update(book_params)
+    redirect_to book_path(book_params)
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to index_book_path
+  end
 
   private
   # ストロングパラメータ
